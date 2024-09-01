@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Load Balancer on AWS System Manager</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content in Load Balancer on AWS System Manager</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Load Balancer</title>
+      <link>//localhost:1313/page-top/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/page-top/</guid>
+      <description>Overview In this post, we will learn about Elastic Load Balancing on AWS&#xA;Contents included Introduction&#xA;Lab 1: Initializing EC2 Instance&#xA;Lab 2: Initializing Load balancer&#xA;Testing and cleanup&#xA;Content Introduction Create EC2 instance for load balancer Initialize load balancer Check and clean up resources </description>
+    </item>
+  </channel>
+</rss>
