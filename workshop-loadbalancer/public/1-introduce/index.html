@@ -12,21 +12,21 @@
     <title>Introduction :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1725198715" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1725198715" rel="stylesheet">
-    <link href="/css/hybrid.css?1725198715" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1725198715" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1725198715" rel="stylesheet">
-    <link href="/css/auto-complete.css?1725198715" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1725198715" rel="stylesheet">
-    <link href="/css/theme.css?1725198715" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1725198715" rel="stylesheet">
+    <link href="/css/nucleus.css?1725207158" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725207158" rel="stylesheet">
+    <link href="/css/hybrid.css?1725207158" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725207158" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725207158" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725207158" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725207158" rel="stylesheet">
+    <link href="/css/theme.css?1725207158" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725207158" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1725198715" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725207158" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1725198715"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725207158"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -79,14 +79,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1725198715"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1725198715"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725207158"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725207158"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1725198715"></script>
+<script type="text/javascript" src="/js/search.js?1725207158"></script>
 
     
   </div>
@@ -340,6 +340,58 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-lab2/" title="Lab 2: Create Load balancer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-lab2/">
+           <b> 3. </b> Lab 2: Create Load balancer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-test-clean/" title="Test and clean" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-test-clean/">
+           <b> 4. </b> Test and clean
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -487,7 +539,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -514,7 +574,7 @@
 	<p>Among the many ways that computers process data, one of the most common is read-only data that needs to be presented quickly and to a large number of users, such as music or videos that are streamed around the world. This type of data is rarely updated or deleted, but it is large in volume and demand can fluctuate significantly (think of a viral video or song). Because the need for this type of access is becoming more common, Amazon Web Services (AWS) provides tools to handle it. These tools are essentially tools that can retrieve data quickly and distribute it across multiple servers to meet peaks and troughs in demand—and do so in a cost-effective way, charging only for usage.</p>
 <p>Applications and websites often provide a wide range of data and services to users. Within this large data set, there is often a smaller subset of data that is requested and accessed more frequently. This could be front-page data that is shown to every visitor (think Amazon’s top 10 products of the day), or it could be a recently released piece of media that is experiencing a spike in popularity (a new song released on Spotify). Other applications run extremely memory-intensive processes and may experience performance issues on slower storage.</p>
 <p>In this workshop, we’ll take a deeper look at Amazon ElastiCache and Elastic Load Balancing?, exploring how it works, the benefits, and how to deploy it to optimize your application performance.</p>
-<h1 id="what-you-will-learn"><strong>What you will learn</strong></h1>
+<h4 id="what-you-will-learn">What you will learn</h4>
 <ul>
 <li>What is ElasticCache ?</li>
 <li>What is Elastic Load Balancing ?</li>
@@ -692,6 +752,38 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -714,19 +806,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1725198715"></script>
-    <script src="/js/perfect-scrollbar.min.js?1725198715"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1725198715"></script>
-    <script src="/js/jquery.sticky.js?1725198715"></script>
-    <script src="/js/featherlight.min.js?1725198715"></script>
-    <script src="/js/highlight.pack.js?1725198715"></script>
+    <script src="/js/clipboard.min.js?1725207158"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725207158"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725207158"></script>
+    <script src="/js/jquery.sticky.js?1725207158"></script>
+    <script src="/js/featherlight.min.js?1725207158"></script>
+    <script src="/js/highlight.pack.js?1725207158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1725198715"></script>
-    <script src="/js/learn.js?1725198715"></script>
-    <script src="/js/hugo-learn.js?1725198715"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725207158"></script>
+    <script src="/js/learn.js?1725207158"></script>
+    <script src="/js/hugo-learn.js?1725207158"></script>
 
-    <link href="/mermaid/mermaid.css?1725198715" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1725198715"></script>
+    <link href="/mermaid/mermaid.css?1725207158" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725207158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

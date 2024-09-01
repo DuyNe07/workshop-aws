@@ -12,21 +12,21 @@
     <title>Launch a second EC2 instance :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1725201039" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1725201039" rel="stylesheet">
-    <link href="/css/hybrid.css?1725201039" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1725201039" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1725201039" rel="stylesheet">
-    <link href="/css/auto-complete.css?1725201039" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1725201039" rel="stylesheet">
-    <link href="/css/theme.css?1725201039" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1725201039" rel="stylesheet">
+    <link href="/css/nucleus.css?1725206404" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725206404" rel="stylesheet">
+    <link href="/css/hybrid.css?1725206404" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725206404" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725206404" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725206404" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725206404" rel="stylesheet">
+    <link href="/css/theme.css?1725206404" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725206404" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1725201039" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725206404" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1725201039"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725206404"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -79,14 +79,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1725201039"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1725201039"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725206404"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725206404"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1725201039"></script>
+<script type="text/javascript" src="/js/search.js?1725206404"></script>
 
     
   </div>
@@ -340,6 +340,58 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-lab2/" title="Lab 2: Create Load balancer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-lab2/">
+           <b> 3. </b> Lab 2: Create Load balancer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-test-clean/" title="Test and clean" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-test-clean/">
+           <b> 4. </b> Test and clean
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -493,7 +545,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -517,9 +577,37 @@
 
 
 
-	<p>Now we will start the lab by creating a simulation of Three computers accessing content in the AWS Cloud. A load balancer will split this access between Availability Zone A and Availability Zone B. Each Availability Zone has three EC2 instances, but one instance in Availability Zone A is down.</p>
-<p><img alt="Lab" src="/images/2.Lab1/021-lab.png?height=400px&width=400px"></p>
-<p>Start by creating 2 EC2 Instances in 2 different regions !</p>
+	<p>To simulate a Load Balance model, we need 2 EC2s to be able to balance the load, so we will create 2 EC2 instances</p>
+<h4 id="initialize-1-ec2-instance-based-on-the-ec2-template-just-created">Initialize 1 EC2 instance based on the EC2 template just created</h4>
+<ol>
+<li>Select the <strong>Instances</strong> section in the left sidebar
+<img alt="buoc1" src="/images/2.Lab1/lab-12/lab-12-1.png?height=300px&width=800px"></li>
+<li>From the <strong>Action</strong> menu, select <em>Images and templates</em>, then select <em>Launch more like this</em> and the <em>Launch an instance</em> page will open.
+<img alt="buoc2" src="/images/2.Lab1/lab-12/lab-12-2.png?height=230px&width=800px"></li>
+<li>Rename to <code>Web service 2</code>
+<img alt="buoc3" src="/images/2.Lab1/lab-12/lab-12-3.png?height=380px&width=460px"></li>
+<li>Note in the <strong>Network setting</strong> section, select <em>Subnet</em> in another place.
+<img alt="buoc4" src="/images/2.Lab1/lab-12/lab-12-4.png?height=450px&width=460px">
+Because I chose from the beginning to initialize from a different <strong>Intances</strong> template, it will share the same <em>security group</em> as the previously created EC2.</li>
+</ol>
+
+<div class="notices note" ><p>Remember <strong>Availability Zone</strong> to use for the following: <code>us-east-1c</code></p>
+</div>
+
+<ol start="5">
+<li>Similarly, change the content in the User data section to the following:
+<pre tabindex="0"><code>#!/bin/bash
+ yum update -y
+ yum -y install httpd
+ systemctl enable httpd
+ systemctl start httpd
+ echo &#39;&lt;html&gt;&lt;h1&gt;Hello World! This is server 2.&lt;/h1&gt;&lt;/html&gt;&#39; &gt; /var/www/html/index.html
+</code></pre><img alt="buoc5" src="/images/2.Lab1/lab-12/lab-12-5.png?height=400px&width=600px"></li>
+<li>Launch instance
+<img alt="buoc6" src="/images/2.Lab1/lab-12/lab-12-6.png?height=300px&width=900px"></li>
+</ol>
+<h4 id="access-the-website-on-the-second-ec2-instance">Access the website on the second EC2 instance</h4>
+<p><img alt="buoc7" src="/images/2.Lab1/lab-12/lab-12-7.png?height=200px&width=600px"></p>
 
 
 
@@ -695,6 +783,41 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -707,7 +830,7 @@
 			<a class="nav nav-prev" href="/2-lab1/2.1-launch_the_first_ec2_instance/" title="Launch the first EC2 instance"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2-lab1/2.1-launch_the_first_ec2_instance/" title="Launch the first EC2 instance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/3-lab2/" title="Lab 2: Create Load balancer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -717,19 +840,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1725201039"></script>
-    <script src="/js/perfect-scrollbar.min.js?1725201039"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1725201039"></script>
-    <script src="/js/jquery.sticky.js?1725201039"></script>
-    <script src="/js/featherlight.min.js?1725201039"></script>
-    <script src="/js/highlight.pack.js?1725201039"></script>
+    <script src="/js/clipboard.min.js?1725206404"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725206404"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725206404"></script>
+    <script src="/js/jquery.sticky.js?1725206404"></script>
+    <script src="/js/featherlight.min.js?1725206404"></script>
+    <script src="/js/highlight.pack.js?1725206404"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1725201039"></script>
-    <script src="/js/learn.js?1725201039"></script>
-    <script src="/js/hugo-learn.js?1725201039"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725206404"></script>
+    <script src="/js/learn.js?1725206404"></script>
+    <script src="/js/hugo-learn.js?1725206404"></script>
 
-    <link href="/mermaid/mermaid.css?1725201039" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1725201039"></script>
+    <link href="/mermaid/mermaid.css?1725206404" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725206404"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

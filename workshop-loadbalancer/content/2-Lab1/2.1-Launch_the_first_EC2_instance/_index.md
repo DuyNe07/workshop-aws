@@ -9,13 +9,13 @@ pre: " <b> 2.1. </b> "
 #### Đầu tiên hãy tạo 1 EC2 instance
 
 1. In the search box to the right of Services, search for and select EC2 to open the EC2 console
-   ![buoc1](/images/2.Lab1/lab-21/lab-21-1.png?height=350px&width=500px)
+   ![buoc1](/images/2.Lab1/lab-11/lab-11-1.png?height=350px&width=500px)
 2. Select the Launch Instance button in the middle of the page, then select Launch Instance from the drop-down menu.
-   ![buoc2](/images/2.Lab1/lab-21/lab-21-2.png?height=300px&width=500px)
+   ![buoc2](/images/2.Lab1/lab-11/lab-11-2.png?height=300px&width=500px)
 3. Next, enter a name and select Application and OS Images as Amazon Linux to use the free tier.
-   ![buoc3](/images/2.Lab1/lab-21/lab-21-3.png?height=550px&width=480px)
+   ![buoc3](/images/2.Lab1/lab-11/lab-11-3.png?height=550px&width=480px)
 4. Select Instance type as t2.micro (free tier) and key pair as vockey8
-   ![buoc4](/images/2.Lab1/lab-21/lab-21-4.png?height=380px&width=500px)
+   ![buoc4](/images/2.Lab1/lab-11/lab-11-4.png?height=380px&width=500px)
 5. In the _Network settings_ section, select Edit.
 
     - Under **Subnet**, select the existing subnet in **Availability Zone us-east-1a**.
@@ -26,8 +26,8 @@ pre: " <b> 2.1. </b> "
     - Select **Add security group rule** to configure a new rule as shown below
         - _Type_ : HTTP
         - _Source type_ : Anywhere
-          ![buoc51](/images/2.Lab1/lab-21/lab-21-5.png?height=550px&width=480px)
-          ![buoc52](/images/2.Lab1/lab-21/lab-21-6.png?height=450px&width=480px)
+          ![buoc51](/images/2.Lab1/lab-11/lab-11-5.png?height=550px&width=480px)
+          ![buoc52](/images/2.Lab1/lab-11/lab-11-6.png?height=450px&width=480px)
 
 {{% notice info %}}
 After this step, it will create a new Security group. If you want to choose security according to your wishes, choose exiting security group!
@@ -56,16 +56,16 @@ After this step, it will create a new Security group. If you want to choose secu
     - Start the web server
     - Create a simple web page
 
-    ![buoc7](/images/2.Lab1/lab-21/lab-21-7.png?height=350px&width=480px)
+    ![buoc7](/images/2.Lab1/lab-11/lab-11-7.png?height=350px&width=480px)
 
 3. Double check again and select Launch instance in Summary section.
-   ![buoc8](/images/2.Lab1/lab-21/lab-21-8.png?height=500px&width=240px)
+   ![buoc8](/images/2.Lab1/lab-11/lab-11-8.png?height=500px&width=240px)
 4. Next after Lauch log Succeeded all select Instances
-   ![buoc9](/images/2.Lab1/lab-21/lab-21-9.png?height=350px&width=480px)
+   ![buoc9](/images/2.Lab1/lab-11/lab-11-9.png?height=350px&width=480px)
 5. Please wait a moment and wait for its status to be ready all
-   ![buoc10](/images/2.Lab1/lab-21/lab-21-10.png?height=400px&width=900px)
+   ![buoc10](/images/2.Lab1/lab-11/lab-11-10.png?height=400px&width=900px)
 
 #### Visit your EC2 instance's website
 
 Copy Ipv4 string and access: `http://<ip của bạn>`
-![buoc11](/images/2.Lab1/lab-21/lab-21-11.png?height=200px&width=600px)
+![buoc11](/images/2.Lab1/lab-11/lab-11-11.png?height=200px&width=600px)

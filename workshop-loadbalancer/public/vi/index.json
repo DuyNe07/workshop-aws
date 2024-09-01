@@ -21,6 +21,13 @@
 	"content": "Đầu tiên hãy tạo 1 EC2 instance Trong hộp tìm kiếm bên phải Dịch vụ, hãy tìm kiếm và chọn EC2 để mở bảng điều khiển EC2 Chọn nút Khởi chạy phiên bản ở giữa trang, sau đó chọn Khởi chạy phiên bản từ menu thả xuống. Tiếp theo hãy nhập tên và lựa chọn Application and OS Images là Amazon Linux để sử dụng free tier Chọn Instance type là t2.micro (free tier) và key pair là vockey Trong phần Network settings, chọn Chỉnh sửa.\nỞ mục Subnet, chọn mạng con hiện có trong Availability Zone us-east-1a. Đối với Security group name hãy nhập Web Server security group Đối với Description hãy nhập Security group for my web server Trong phần Inbound security groups rules, chọn Remove để xóa quy tắc mặc định. Chọn Add security group rule để định cấu hình quy tắc mới như bên dưới Type : HTTP Source type : Anywhere Sau khi ở bước này nó sẽ tạo ra 1 Security group mới, nếu bạn muốn lựa chọn security theo ý muốn của mình thì hãy chọn exisiting security group nhé !\nTrong bảng Configure storage thì hãy giữ nguyên cấu hình lưu trữ mặc định.\nCấu hình phần Advance details để chèn mẫu 1 script mẫu để có thể test thử EC2\nMở rộng phần Advance details Kéo xuống cuối ở phần User data và nhập đoạn cript cli mẫu như dưới #!/bin/bash\ryum update -y\ryum -y install httpd\rsystemctl enable httpd\rsystemctl start httpd\recho \u0026#39;\u0026lt;html\u0026gt;\u0026lt;h1\u0026gt;Hello World! This is server 1.\u0026lt;/h1\u0026gt;\u0026lt;/html\u0026gt;\u0026#39; \u0026gt; /var/www/html/index.html Tập lệnh này thực hiện các thao tác sau:\nCập nhật máy chủ Cài đặt máy chủ web Apache (httpd) Cấu hình máy chủ web để tự động khởi động khi khởi động Khởi động máy chủ web Tạo trang web đơn giản Kiểm tra kỹ lại 1 lần nữa và chọn Launch instance ở phần Summary Tiếp theo sau khi Lauch log Succeeded toàn bộ hãy chọn Instances Hãy đợi 1 lúc và chờ cho trạng thái của nó là sẵn sàng tất cả Truy cập trang web của phiên bản EC2 của bạn Sao chép chuỗi Ipv4 và truy cập: http://\u0026lt;ip của bạn\u0026gt; "
 },
 {
+	"uri": "//localhost:1313/vi/",
+	"title": "Load Balancer",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan Trong bài này chúng ta sẽ cùng nhau tìm hiểu về Elastic Load Balancing trên AWS\nNội dung bao gồm Giới thiệu Lab 1: Khởi tạo EC2 Instance Lab 2: Khởi tạo Load balancer Chạy thử và dọn dẹp Nội dung Giới thiệu Tạo phiên bản EC2 cho bộ cân bằng tải Khởi tạo bộ cân bằng tải Kiểm tra và dọn dẹp tài nguyên "
+},
+{
 	"uri": "//localhost:1313/vi/1-introduce/1.2-elastic_load_balancing/",
 	"title": "Elastic Load Balancing",
 	"tags": [],
@@ -39,14 +46,14 @@
 	"title": "Launch a second EC2 instance",
 	"tags": [],
 	"description": "",
-	"content": "Bây giờ chúng ta sẽ bắt đầu thực hiện bài lab bằng việc tạo mô phỏng Ba máy tính đang truy cập nội dung trên Đám mây AWS. Bộ cân bằng tải sẽ phân chia quyền truy cập này giữa Vùng sẵn sàng A và Vùng sẵn sàng B. Mỗi Vùng sẵn sàng có ba phiên bản EC2, nhưng một phiên bản ở Vùng sẵn sàng A không hoạt động.\nBắt đầu bằng việc khởi tạo 2 EC2 Instances ở 2 vùng khác nhau !\n"
+	"content": "Để mô phỏng một mô hình Load Balance thì cần 2 EC2 để có thể cân bằng tải, vì thế chúng ta sẽ tạo 2 EC2 instance\nKhởi tạo 1 EC2 instance dựa trên khung mẫu EC2 vừa tạo Chọn phần Instances trong thanh bên trái Từ menu Action, chọn Images and templates, sau đó chọn Launch more like this thì trang Launch an instance sẽ mở ra. Đổi tên thành Web service 2 Chú ý ở phần Network setting hãy chọn Subnet ở 1 nơi khác Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu Intances khác nên nó sẽ chung security group với EC2 đã tạo trước đó Hãy nhớ Availability Zone để sử dụng cho phần sau: us-east-1c\nTương tự thay nội dung ở phần User data thành như sau: #!/bin/bash\ryum update -y\ryum -y install httpd\rsystemctl enable httpd\rsystemctl start httpd\recho \u0026#39;\u0026lt;html\u0026gt;\u0026lt;h1\u0026gt;Hello World! This is server 2.\u0026lt;/h1\u0026gt;\u0026lt;/html\u0026gt;\u0026#39; \u0026gt; /var/www/html/index.html Khởi chạy instance Truy cập trang web trên phiên bản EC2 thứ hai "
 },
 {
-	"uri": "//localhost:1313/vi/",
-	"title": "Load Balancer",
+	"uri": "//localhost:1313/vi/3-lab2/",
+	"title": "Lab 2: Tạo Load balancer",
 	"tags": [],
 	"description": "",
-	"content": "Tổng quan Trong bài này chúng ta sẽ cùng nhau tìm hiểu về Elastic Load Balancing trên AWS\nNội dung bao gồm Giới thiệu Lab 1: Khởi tạo EC2 Instance Lab 2: Khởi tạo Load balancer Chạy thử và dọn dẹp Nội dung Giới thiệu Tạo EC2 instance cho bộ cân bằng tải Khởi tạo bộ cân bằng tải Dọn dẹp thử nghiệm "
+	"content": "Tiếp theo khi đã khởi tạo mẫu 2 EC2 Instances thì tiếp theo tạo 1 load balancer\nỞ phần panel bên trái kéo xuống phần Load Balancing chọn Load Balancers Chọn Create Load Balancer. Ở đây chúng ta sẽ thấy được 3 loại Load Balancer mà mình đã nói tới ở phần giới thiệu. Vì bài lab của mình đang mô phỏng mô hình đơn giản nhất là Application Load Balancer nên chúng ta sẽ chọn Create ở phần này Ở phần Basic configuration hãy nhập tên myloadbalaner và để mặc định là IPv4 à Internet-facing Ở phần Network mapping, hãy chọn 2 Availability Zones của 2 EC2 Instances mà chúng ta đã tạo ở trước (của mình là us-east-1b (use1-az2) và us-east-1c (use1-az2)) Bạn có thể kiểm tra lại bằng cách nhấp vào phần Instances ở thanh panel bên trái và kiểm tra lại trên list Instances\nỞ phần Security groups hãy xóa defaut và chọn vào Security groups mà đã tạo cho 2 EC2 Instances nhé ! Ở phần Listeners and routing, hãy chọn Create target group, lúc này 1 cửa sổ mới sẽ được mở ra Ở phần Basic configuration hãy để mặc định Instance và đặt tên là myalbTG Ở phần Health checks hãy nhập index.html để đường dẫn là /index.html và chọn Next sang phần 2 Ở trang Register targets, ở phần Available instances hãy chọn 2 instances Web Server 1 và Web Server 2 đã tạo ở Lab trước Sau đó hãy chọn Include as pending below và kiểm tra xem 2 instaces đã được thêm ở mục Targets hay chưa. Nếu có rồi thì chọn Create target group Target Group là một nhóm các mục tiêu (targets) mà Load Balancer sẽ phân phối lưu lượng đến. Mỗi target có thể là một instance EC2, một container trong ECS hoặc một endpoint của Lambda.\nTrở về tab Create Application Load Balancer, hãy chọn reload ở phần Listeners and routing, sau đó hãy chọn vào Target groups vừa mới tạo Kiểm tra lại lần nữa ở phần Summary và chọn Create load balancer Sau đó hãy liên tục nhấn nút reload đến khi Status chuyển sang Active là thành công gòi !!! (thật ra là để 1p rồi hãy nhấn chứ đừng spam quài nhen) "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/1.3-pricing/",
@@ -54,6 +61,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Elastic Load Balancing cung cấp bốn loại cân bằng tải, tất cả đều có độ khả dụng cao, tự động điều chỉnh quy mô và hỗ trợ bảo mật mạnh mẽ cho các ứng dụng của bạn: Application Load Balancer, Network Load Balancer, Gateway Load Balancer và Classic Load Balancer. Bạn chỉ phải trả cho những gì mình sử dụng với các dịch vụ này.\nApplication Load Balancer Bạn phải trả phí cho mỗi giờ hoặc thời gian không tròn một giờ mà Application Load Balancer đang hoạt động và số Đơn vị công suất Load Balancer (LCU) được sử dụng mỗi giờ.\nNetwork Load Balancer Bạn phải trả phí cho mỗi giờ hoặc thời gian không tròn một giờ mà Network Load Balancer đang hoạt động và số Đơn vị công suất Network Load Balancer (NLCU) được Network Load Balancer sử dụng mỗi giờ.\nGateway Load Balancer Bạn phải trả phí cho mỗi giờ hoặc thời gian không tròn một giờ mà Gateway Load Balancer đang hoạt động và số Đơn vị công suất Gateway Load Balancer (GLCU) được Gateway Load Balancer sử dụng mỗi giờ. Gateway Load Balancer sử dụng Điểm cuối Gateway Load Balancer (GWLBE). Đây là loại Điểm cuối VPC mới với sức mạnh của công nghệ AWS PrivateLink, giúp đơn giản hóa phương thức các ứng dụng trao đổi lưu lượng truy cập một cách bảo mật nhờ GWLB trên các biên VPC. GWLBE có mức định giá và tính phí riêng biệt.\nClassic Load Balancer Bạn phải trả phí cho mỗi giờ hoặc thời gian không tròn một giờ mà Bộ cân bằng tải cổ điển hoạt động và cho mỗi GB dữ liệu được truyền qua bộ cân bằng tải của bạn.\nFree Tier của AWS Sau khi mình tìm hiểu thì ELB có trong chương trình free tier của AWS cho các tài khoản mới. Khi đăng ký, khách hàng AWS mới sẽ nhận được 750 giờ sử dụng chung mỗi tháng cho Classic Load Balancer và Application Load Balancer; 15 GB xử lý dữ liệu cho Classic Load Balancer và 15 LCU cho Application Load Balancer.\nĐể biết thêm nhiều chi tiết hơn về chi phí của ELB truy cập: Phân bổ lưu lượng truy cập mạng và ứng dụng - Giá của Elastic Load Balancing - AWS (amazon.com)\n"
+},
+{
+	"uri": "//localhost:1313/vi/4-test-clean/",
+	"title": "Test and clean",
+	"tags": [],
+	"description": "",
+	"content": "Chạy thử Load balancer Mở phần Load balancer và chọn Details Load balancer vừa mới tạo Sao chép DNS name và mở vào 1 tab mới F5 vài lần nó sẽ luân chuyển giữa EC1 và EC2 đã tạo ở trước đó Dọn dẹp tài nguyên Sau khi chạy xong bạn nhớ tắt 2 máy EC2 đã tạo đi nhé để tránh lãng phí free tier cho các Lab sau nãy nữa.\nChọn vào 2 phần EC2 và chọn Instance state sau đó chọn Terminate instance là thành công nhé !!!\n"
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/1.4-types_of_elbs_in_aws/",

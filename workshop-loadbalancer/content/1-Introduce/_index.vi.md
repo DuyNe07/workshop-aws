@@ -12,7 +12,7 @@ Các ứng dụng và trang web thường cung cấp nhiều loại dữ liệu 
 
 Trong bài workshop này, chúng ta sẽ cùng tìm hiểu sâu hơn về Amazon ElastiCache và Elastic Load Balancing?, khám phá cách hoạt động, lợi ích, và cách triển khai dịch vụ này để tối ưu hóa hiệu suất ứng dụng của bạn.
 
-### **Những gì bạn sẽ học**
+#### Những gì bạn sẽ học
 
 -   Elasticache là gì ?
 -   Elastic Load Balancing là gì?

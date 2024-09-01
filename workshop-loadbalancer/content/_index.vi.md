@@ -1,7 +1,7 @@
 ---
 title: "Load Balancer"
 date: "`r Sys.Date()`"
-weight: 2
+weight: 1
 chapter: false
 ---
 
@@ -18,7 +18,7 @@ Trong bài này chúng ta sẽ cùng nhau tìm hiểu về Elastic Load Balancin
 
 ### Nội dung
 
-1. [Giới thiệu](1-Introduce)
-2. [Tạo EC2 instance cho bộ cân bằng tải](2-Create_EC2_instance_for_load_balancing)
-3. [Khởi tạo bộ cân bằng tải](3-Initialize_load_balancer)
-4. [Dọn dẹp thử nghiệm](4-Test_clean_up)
+1.  [Giới thiệu](1-Introduce/)
+2.  [Tạo phiên bản EC2 cho bộ cân bằng tải](2-Lab1/)
+3.  [Khởi tạo bộ cân bằng tải](3-Lab2/)
+4.  [Kiểm tra và dọn dẹp tài nguyên](4-Test-clean/)

@@ -12,21 +12,21 @@
     <title>Launch a second EC2 instance :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1725201039" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1725201039" rel="stylesheet">
-    <link href="/css/hybrid.css?1725201039" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1725201039" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1725201039" rel="stylesheet">
-    <link href="/css/auto-complete.css?1725201039" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1725201039" rel="stylesheet">
-    <link href="/css/theme.css?1725201039" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1725201039" rel="stylesheet">
+    <link href="/css/nucleus.css?1725206404" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725206404" rel="stylesheet">
+    <link href="/css/hybrid.css?1725206404" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725206404" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725206404" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725206404" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725206404" rel="stylesheet">
+    <link href="/css/theme.css?1725206404" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725206404" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1725201039" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725206404" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1725201039"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725206404"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -79,14 +79,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1725201039"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1725201039"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725206404"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725206404"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1725201039"></script>
+<script type="text/javascript" src="/js/search.js?1725206404"></script>
 
     
   </div>
@@ -340,6 +340,58 @@
  
 
           
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-lab2/" title="Lab 2: Tạo Load balancer" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-lab2/">
+           <b> 3. </b> Lab 2: Tạo Load balancer
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-test-clean/" title="Test and clean" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-test-clean/">
+           <b> 4. </b> Test and clean
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -529,13 +581,13 @@
 <h4 id="khởi-tạo-1-ec2-instance-dựa-trên-khung-mẫu-ec2-vừa-tạo">Khởi tạo 1 EC2 instance dựa trên khung mẫu EC2 vừa tạo</h4>
 <ol>
 <li>Chọn phần <strong>Instances</strong> trong thanh bên trái
-<img alt="buoc1" src="/images/2.Lab1/lab-22/lab-22-1.png?height=300px&width=800px"></li>
+<img alt="buoc1" src="/images/2.Lab1/lab-12/lab-12-1.png?height=300px&width=800px"></li>
 <li>Từ menu <strong>Action</strong>, chọn <em>Images and templates</em>, sau đó chọn <em>Launch more like this</em> thì trang <em>Launch an instance</em> sẽ mở ra.
-<img alt="buoc2" src="/images/2.Lab1/lab-22/lab-22-2.png?height=230px&width=800px"></li>
+<img alt="buoc2" src="/images/2.Lab1/lab-12/lab-12-2.png?height=230px&width=800px"></li>
 <li>Đổi tên thành <code>Web service 2</code>
-<img alt="buoc3" src="/images/2.Lab1/lab-22/lab-22-3.png?height=380px&width=460px"></li>
+<img alt="buoc3" src="/images/2.Lab1/lab-12/lab-12-3.png?height=380px&width=460px"></li>
 <li>Chú ý ở phần <strong>Network setting</strong> hãy chọn <em>Subnet</em> ở 1 nơi khác
-<img alt="buoc4" src="/images/2.Lab1/lab-22/lab-22-4.png?height=450px&width=460px">
+<img alt="buoc4" src="/images/2.Lab1/lab-12/lab-12-4.png?height=450px&width=460px">
 Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu <strong>Intances</strong> khác nên nó sẽ chung <em>security group</em> với EC2 đã tạo trước đó</li>
 </ol>
 
@@ -550,12 +602,12 @@ Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu <strong>Intances
  systemctl enable httpd
  systemctl start httpd
  echo &#39;&lt;html&gt;&lt;h1&gt;Hello World! This is server 2.&lt;/h1&gt;&lt;/html&gt;&#39; &gt; /var/www/html/index.html
-</code></pre><img alt="buoc5" src="/images/2.Lab1/lab-22/lab-22-5.png?height=400px&width=600px"></li>
+</code></pre><img alt="buoc5" src="/images/2.Lab1/lab-12/lab-12-5.png?height=400px&width=600px"></li>
 <li>Khởi chạy instance
-<img alt="buoc6" src="/images/2.Lab1/lab-22/lab-22-6.png?height=300px&width=900px"></li>
+<img alt="buoc6" src="/images/2.Lab1/lab-12/lab-12-6.png?height=300px&width=900px"></li>
 </ol>
 <h4 id="truy-cập-trang-web-trên-phiên-bản-ec2-thứ-hai">Truy cập trang web trên phiên bản EC2 thứ hai</h4>
-<p><img alt="buoc7" src="/images/2.Lab1/lab-22/lab-22-7.png?height=200px&width=600px"></p>
+<p><img alt="buoc7" src="/images/2.Lab1/lab-12/lab-12-7.png?height=200px&width=600px"></p>
 
 
 
@@ -731,6 +783,41 @@ Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu <strong>Intances
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
         
@@ -743,7 +830,7 @@ Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu <strong>Intances
 			<a class="nav nav-prev" href="/vi/2-lab1/2.1-launch_the_first_ec2_instance/" title="Launch the first EC2 instance"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-lab1/2.1-launch_the_first_ec2_instance/" title="Launch the first EC2 instance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/3-lab2/" title="Lab 2: Tạo Load balancer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -753,19 +840,19 @@ Vì mình đã chọn từ đầu là khởi tạo từ 1 mẫu <strong>Intances
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1725201039"></script>
-    <script src="/js/perfect-scrollbar.min.js?1725201039"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1725201039"></script>
-    <script src="/js/jquery.sticky.js?1725201039"></script>
-    <script src="/js/featherlight.min.js?1725201039"></script>
-    <script src="/js/highlight.pack.js?1725201039"></script>
+    <script src="/js/clipboard.min.js?1725206404"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725206404"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725206404"></script>
+    <script src="/js/jquery.sticky.js?1725206404"></script>
+    <script src="/js/featherlight.min.js?1725206404"></script>
+    <script src="/js/highlight.pack.js?1725206404"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1725201039"></script>
-    <script src="/js/learn.js?1725201039"></script>
-    <script src="/js/hugo-learn.js?1725201039"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725206404"></script>
+    <script src="/js/learn.js?1725206404"></script>
+    <script src="/js/hugo-learn.js?1725206404"></script>
 
-    <link href="/mermaid/mermaid.css?1725201039" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1725201039"></script>
+    <link href="/mermaid/mermaid.css?1725206404" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725206404"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

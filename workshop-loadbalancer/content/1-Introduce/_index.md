@@ -12,7 +12,7 @@ Applications and websites often provide a wide range of data and services to use
 
 In this workshop, we’ll take a deeper look at Amazon ElastiCache and Elastic Load Balancing?, exploring how it works, the benefits, and how to deploy it to optimize your application performance.
 
-# **What you will learn**
+#### What you will learn
 
 -   What is ElasticCache ?
 -   What is Elastic Load Balancing ?
